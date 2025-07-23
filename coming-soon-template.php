@@ -22,7 +22,7 @@ $text_color = get_option('csm_text_color', '#ffffff');
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 96vh;
+            min-height: 98vh;
             height: 100%;
             padding: 20px;
         }
@@ -54,7 +54,9 @@ $text_color = get_option('csm_text_color', '#ffffff');
         <img class="logo" src="<?php echo esc_url($logo); ?>" alt="Logo">
     <?php endif; ?>
     <h1><?php echo esc_html($title); ?></h1>
+    <?php if ($message) { ?>
     <p><?php echo nl2br(esc_html($message)); ?></p>
+    <?php } ?>
     <?php if ($date): ?>
         <p class="date">Launching on <?php echo esc_html(date('F j, Y', strtotime($date))); ?></p>
     <?php endif; ?>

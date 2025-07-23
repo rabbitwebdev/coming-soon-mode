@@ -1,9 +1,15 @@
 <?php
 /*
 Plugin Name: Coming Soon Mode
+Plugin URI: https://zapstart.digital/plugins/coming-soon-mode
 Description: Displays a coming soon landing page for visitors while site is under construction.
-Version: 1.0
-Author: Your Name
+Version: 1.3
+Requires at least: 5.2
+Requires PHP: 7.2
+Author: ZAPSTART Digital
+Author URI: https://zapstart.digital
+Text Domain: coming-soon-mode
+
 */
 
 if (!defined('ABSPATH')) exit;
@@ -18,6 +24,9 @@ add_action('template_redirect', function () {
         }
     }
 });
+
+
+
 
 // Admin settings
 add_action('admin_menu', function () {
