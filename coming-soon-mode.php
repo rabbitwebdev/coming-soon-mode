@@ -41,6 +41,9 @@ add_action('admin_init', function () {
     register_setting('csm_settings_group', 'csm_logo');
 register_setting('csm_settings_group', 'csm_bg_image');
 register_setting('csm_settings_group', 'csm_text_color');
+register_setting('csm_settings_group', 'csm_email_provider');
+register_setting('csm_settings_group', 'csm_brevo_form_html');
+register_setting('csm_settings_group', 'csm_mailchimp_url');
 
 });
 
@@ -88,6 +91,31 @@ function csm_settings_page() {
         <th scope="row">Launch Date (optional)</th>
         <td><input type="date" name="csm_launch_date" value="<?php echo esc_attr(get_option('csm_launch_date')); ?>" /></td>
     </tr>
+    <tr valign="top">
+    <th scope="row">Email Signup Provider</th>
+    <td>
+        <select name="csm_email_provider">
+            <option value="">None</option>
+            <option value="mailchimp" <?php selected(get_option('csm_email_provider'), 'mailchimp'); ?>>Mailchimp</option>
+            <option value="brevo" <?php selected(get_option('csm_email_provider'), 'brevo'); ?>>Brevo</option>
+        </select>
+        <p class="description">Choose which email provider to use for collecting signups.</p>
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="row">Brevo Form HTML</th>
+    <td>
+        <textarea name="csm_brevo_form_html" rows="6" class="large-text"><?php echo esc_textarea(get_option('csm_brevo_form_html')); ?></textarea>
+        <p class="description">Paste the full embed HTML for your Brevo form here.</p>
+    </td>
+</tr>
+<tr valign="top">
+    <th scope="row">Mailchimp Form Action URL</th>
+    <td>
+        <input type="text" name="csm_mailchimp_url" value="<?php echo esc_attr(get_option('csm_mailchimp_url')); ?>" class="regular-text" />
+        <p class="description">Paste the full form action URL from your Mailchimp embed code.</p>
+    </td>
+</tr>
 </table>
             <?php submit_button(); ?>
         </form>
