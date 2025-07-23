@@ -60,5 +60,34 @@ $text_color = get_option('csm_text_color', '#ffffff');
     <?php if ($date): ?>
         <p class="date">Launching on <?php echo esc_html(date('F j, Y', strtotime($date))); ?></p>
     <?php endif; ?>
+
+    <div id="countdown" style="margin-top: 30px; font-size: 1.5rem;"></div>
+
+<script>
+    const launchDate = "<?php echo esc_js(get_option('csm_launch_date')); ?>";
+    const countdown = document.getElementById("countdown");
+
+    if (launchDate) {
+        const countDownDate = new Date(launchDate).getTime();
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance <= 0) {
+                clearInterval(interval);
+                countdown.innerHTML = "We're live!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `Launching in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    }
+</script>
+
 </body>
 </html>
