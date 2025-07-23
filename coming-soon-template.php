@@ -22,12 +22,16 @@ $text_color = get_option('csm_text_color', '#ffffff');
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 100vh;
+            min-height: 96vh;
+            height: 100%;
             padding: 20px;
         }
         img.logo {
             max-width: 200px;
             margin-bottom: 30px;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
         }
         h1 {
             font-size: 3rem;
