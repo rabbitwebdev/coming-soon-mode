@@ -27,7 +27,7 @@ $text_color = get_option('csm_text_color', '#ffffff');
             padding: 20px;
         }
         img.logo {
-            max-width: 200px;
+            max-width: 125px;
             margin-bottom: 30px;
   object-fit: contain;
   width: 100%;
@@ -36,11 +36,14 @@ $text_color = get_option('csm_text_color', '#ffffff');
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            text-transform: capitalize;
+  font-weight: 700;
+  text-shadow: 5px 5px 6px #232323;
         }
         p {
             max-width: 600px;
-            font-size: 1.2rem;
-            line-height: 1.6;
+            font-size: 1.5rem;
+            line-height: 1.1;
         }
         .date {
             margin-top: 20px;
@@ -59,9 +62,10 @@ $text_color = get_option('csm_text_color', '#ffffff');
     <?php } ?>
     <?php if ($date): ?>
         <p class="date">Launching on <?php echo esc_html(date('F j, Y', strtotime($date))); ?></p>
+         <div id="countdown" style="margin-top: 30px; font-size: 1.5rem;"></div>
     <?php endif; ?>
 
-    <div id="countdown" style="margin-top: 30px; font-size: 1.5rem;"></div>
+   
 
 <script>
     const launchDate = "<?php echo esc_js(get_option('csm_launch_date')); ?>";

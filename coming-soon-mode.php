@@ -3,7 +3,7 @@
 Plugin Name: Coming Soon Mode
 Plugin URI: https://zapstart.digital/plugins/coming-soon-mode
 Description: Displays a coming soon landing page for visitors while site is under construction.
-Version: 1.3
+Version: 1.5
 Requires at least: 5.2
 Requires PHP: 7.2
 Author: ZAPSTART Digital
